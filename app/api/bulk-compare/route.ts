@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
-const BULK_API_URL = "https://ai-plagiarism-checker-and-quality-scorer.onrender.com/bulk-compare";
+const API_BASE_URL =
+  process.env.PLAGIARISM_API_BASE_URL?.trim().replace(/\/$/, "") ||
+  "https://ai-plagiarism-checker-and-quality-scorer.onrender.com";
+const BULK_API_URL = `${API_BASE_URL}/bulk-compare`;
 export const dynamic = "force-dynamic";
 
 type SubmissionInput = { id: string; code: string };

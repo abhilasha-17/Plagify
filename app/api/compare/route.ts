@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
-const API_URL = "https://ai-plagiarism-checker-and-quality-scorer.onrender.com/compare";
+const API_BASE_URL =
+  process.env.PLAGIARISM_API_BASE_URL?.trim().replace(/\/$/, "") ||
+  "https://ai-plagiarism-checker-and-quality-scorer.onrender.com";
+const API_URL = `${API_BASE_URL}/compare`;
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
